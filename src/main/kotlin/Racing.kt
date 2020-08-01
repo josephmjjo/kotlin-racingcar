@@ -1,20 +1,24 @@
-fun inputcarnumber(): Int {
-    print("Please Enter cars number :")
-    return readLine()!!.toInt()
+object InputView {
+    fun inputcarnumber(): Int {
+        print("Please Enter cars number :")
+        return readLine()!!.toInt()
+    }
+
+    fun inputcircuitnumber(): Int {
+        print("Please Enter circuit number :")
+        return readLine()!!.toInt()
+    }
 }
 
-fun inputcircuitnumber(): Int {
-    print("Please Enter circuit number :")
-    return readLine()!!.toInt()
-}
-
-class OutputView() {
+class OutputView {
     fun printcircuit(number: Int) {
         println(result.repeat(number))
     }
-    fun distinctcircuit(){
+
+    fun distinctcircuit() {
         println(distinct)
     }
+
     companion object {
         private val result = "_"
         private val distinct = " "
@@ -50,9 +54,8 @@ fun countcar(carlist: List<Cars>, circuits: Int) {
 
 // 클래스에 생성자를 자료형을 클래스로 설정하는 법을 구현하지 못하여 for 문을 메인 메소드에다가 만들었습니다.
 fun main() {
-    val cars = inputcarnumber()
-    val circuits = inputcircuitnumber()
+    val cars = InputView.inputcarnumber()
+    val circuits = InputView.inputcircuitnumber()
     val carlist = MutableList(cars) { index -> Cars() }
     countcar(carlist, circuits)
 }
-
